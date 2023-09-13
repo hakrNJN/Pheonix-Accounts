@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import { BrowserRouter } from 'react-router-dom';
+import Topbar from './Components/Global/TopBar';
+import MyRoutes from './Routes/Routes';
+import Sidebar from './Components/Global/Sidebar';
+import React from 'react';
+import appConfig from "./Config/AppConfig";
+import { ColorModeContext,useMode } from './theme';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { Provider } from 'react-redux';
+const AppContent = () => {
+  const [isSidebar, setIsSidebar] = React.useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <div className="app">
+        <Sidebar menuContent={appConfig.menuContent} isSidebar={isSidebar} />
+        <main className="content" style={{ flex: 1 }}>
+              <Topbar setIsSidebar={setIsSidebar} />
+              <MyRoutes />
+            </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
+
+const App = () => {
+  const [theme, colorMode] = useMode();
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {/* <Provider store={store}>*/}
+          <AppContent />
+        {/*</Provider>*/} 
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
+}
 export default App;
