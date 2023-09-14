@@ -10,6 +10,7 @@ import { MenuItem, MenuList, Popover } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import { useState } from 'react'
 import TextInput from "../../Components/TextInput";
+import NumberInput from "../../Components/NumberInput";
 
 const Lab = () => {
   const isMobile = useMediaQuery('(max-width:600px)')
@@ -79,7 +80,8 @@ const Lab = () => {
             </Box>
           </Toolbar>
         </AppBar>
-        <TextInput label={'Name'} fullWidth/>
+        <TextInput label={'Name'} fullWidth />
+        <NumberInput aria-label="Demo number input" placeholder="Type a number…" />
       </Card>
     </Container>
   )
