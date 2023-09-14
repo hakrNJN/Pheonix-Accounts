@@ -64,7 +64,7 @@ const MySidebar = ({menuContent}) => {
     // const { collapseSidebar, collapsed, toggleSidebar } = useProSidebar();
     const [selected, setSelected] = useState("Dashboard");
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-    const user = useSelector((state) => state.auth.user);
+    // const user = useSelector((state) => state.auth.user);
   
     useEffect(() => {
       const handleResize = () => {
@@ -169,9 +169,9 @@ const MySidebar = ({menuContent}) => {
                     fontWeight="bold"
                     sx={{ m: "10px 0 0 0" ,textTransform: 'uppercase'}}
                   >
-                    {user.name.toUpperCase()}
+                    {/*user.name.toUpperCase()*/}User Name
                   </Typography>
-                  <GroupWithIcon group={user.permissions.group} />
+                  {/*<GroupWithIcon group={user.permissions.group} />*/}
                 </Box>
               </Box>
             )}

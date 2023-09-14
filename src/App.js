@@ -9,6 +9,7 @@ import appConfig from "./Config/AppConfig";
 import { ColorModeContext,useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
+import store from './Store/Store';
 const AppContent = () => {
   const [isSidebar, setIsSidebar] = React.useState(true);
   return (
@@ -32,9 +33,9 @@ const App = () => {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* <Provider store={store}>*/}
+        <Provider store={store}>
           <AppContent />
-        {/*</Provider>*/} 
+        </Provider>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
