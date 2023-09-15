@@ -51,6 +51,7 @@ const Styles = () => {
         font-weight: 400;
         line-height: 1.5;
         padding: 8px 12px;
+        margin: 2px;
         border-radius: 8px;
         color: ${isDarkMode ? grey[300] : grey[900]};
         background: ${isDarkMode ? grey[900] : "#fff"};
