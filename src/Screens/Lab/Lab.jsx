@@ -1,18 +1,9 @@
-import React from "react";
-import { Search } from '@mui/icons-material'
-import { ArrowCircleLeft } from '@mui/icons-material'
-import { Stream } from '@mui/icons-material'
-import { ArrowCircleRight } from '@mui/icons-material'
-import { WhatsApp } from '@mui/icons-material'
-import { ArrowCircleDown } from '@mui/icons-material'
-import { AppBar, Avatar, Card, Grid, Paper, Toolbar, Typography, useMediaQuery } from '@mui/material'
-import { MenuItem, MenuList, Popover } from '@mui/material'
-import { Box, Container, styled } from '@mui/system'
-import { useState } from 'react'
-import TextInput from "../../Components/TextInput";
-import NumberInput from "../../Components/NumberInput";
+import { Avatar, Card, Grid, Paper, useMediaQuery } from '@mui/material';
+import { Box, Container, styled } from '@mui/system';
+import React, { useState } from "react";
 import TitleBar from "../../Components/Global/TitleBar";
-import SelectInput from "@mui/material/Select/SelectInput";
+import NumberInput from "../../Components/NumberInput";
+import TextInput from "../../Components/TextInput";
 
 const Lab = () => {
   const isMobile = useMediaQuery('(max-width:600px)')
@@ -40,16 +31,16 @@ const Lab = () => {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container padding={1}>
             <Grid items xs={12} sm={12} md={8} lg={10}>
-              <TextInput label={'Name'} fullWidth />
+              <TextInput name={'Name'} label={'Name'} fullWidth />
               <Grid container justifyContent={'space-evenly'} >
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <TextInput label={'GSTIN'} width="200" />
+                  <TextInput name={'GSTIN'} label={'GSTIN'} width="200" />
                 </Grid>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <TextInput label={'Category'} width="200" />
+                  <TextInput name={'Category'} label={'Category'} width="200" />
                 </Grid>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <TextInput label={'Schedule'} width="200" />
+                  <TextInput name={'Schedule'} label={'Schedule'} width="200" />
                 </Grid>
               </Grid>
 
