@@ -1,5 +1,5 @@
-import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
+import { createContext, useMemo, useState } from "react";
 
 // color design tokens export
 export const tokens = (mode) => ({
@@ -195,6 +195,35 @@ export const themeSettings = (mode) => {
         styleOverrides: {
           root: {
             color: mode === "dark"?'white':'black'
+          },
+        },
+      },
+      MuiAccordion: {
+        styleOverrides: {
+          root: {
+            margin: '0', // Remove margin
+            boxShadow: 'none', // Remove box-shadow
+            '&.Mui-expanded': {
+              margin: '0', // Remove margin
+            },
+          },
+        },
+      },
+      MuiAccordionSummary: {
+        styleOverrides: {
+          root: {
+            // maxHeight: '55px',
+            minHeight:'0px',// Adjust as needed
+            '&.Mui-expanded': {
+              minHeight:'0px',
+              // maxHeight: '55px', // Adjust as needed
+            },
+          },
+          content: {
+            margin: '0px', // Remove margin
+            '&.Mui-expanded': {
+              margin: '0px', // Remove margin
+            },
           },
         },
       },

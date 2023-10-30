@@ -5,9 +5,10 @@ import {
   AccordionSummary,
   Avatar,
   Card,
+  FormControl,
   Grid,
   Paper,
-  useMediaQuery,
+  useMediaQuery
 } from "@mui/material";
 import { Box, Container, styled } from "@mui/system";
 import React, { useState } from "react";
@@ -34,32 +35,31 @@ const Lab = () => {
     <Container maxWidth="md">
       <Card variant="outlined" sx={{ m: 2 }}>
         <TitleBar />
-
         <Box sx={{ flexGrow: 1 }}>
           <Grid container padding={1}>
             <Grid items xs={12} sm={12} md={8} lg={10}>
-              <TextInput name={"Name"} label={"Name"} fullWidth />
+              <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panella-content"
+                  id="panella-content"
+                  sx={{ p: 0 }}
+                >
+                  <FormControl fullWidth sx={{ m: 0, p: 0 }}>
+                    <TextInput name={"Name"} label={"Name"} fullWidth />
+                  </FormControl>
+                </AccordionSummary>
+                <AccordionDetails sx={{ p: 0 }}>
+                  <FormControl fullWidth>
+                    <div style={{ display: 'flex' }}>
+                      <TextInput name={"Display Name"} label={"Display Name"} fullWidth style={{ flexGrow: 1, width: '100%' }} />
+                      <div style={{ visibility: 'hidden' }}><ExpandMoreIcon /></div>
+                    </div>
+                  </FormControl>
+                </AccordionDetails>
+              </Accordion>
               <Grid container justifyContent={"space-evenly"}>
                 <Grid item xs={12} sm={12} md={12} lg={4}>
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <TextInput name={"Name"} label={"Name"} width="200" />
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Box display="flex" flexDirection="column">
-                        <TextInput name={"GSTIN"} label={"GSTIN"} width="200" />
-                        <TextInput
-                          name={"DisplayName"}
-                          label={"DisplayName"}
-                          width="200"
-                        />
-                      </Box>
-                    </AccordionDetails>
-                  </Accordion>
+                  <TextInput name={"GSTIN"} label={"GSTIN"} width="200" />
                 </Grid>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
                   <SelectInput
@@ -79,17 +79,18 @@ const Lab = () => {
                 </Grid>
               </Grid>
 
-              <TextInput label={"Address 1"} fullWidth />
-              <TextInput label={"Address 2"} fullWidth />
+              <TextInput label={"Address 1"} name={'Address 1'} fullWidth />
+              <TextInput label={"Address 2"} name={'Address 2'} fullWidth />
               <Grid container justifyContent={"space-evenly"}>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <TextInput label={"City"} width="200" />
+                  <TextInput label={"City"} name={'City'} width="200" />
                 </Grid>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <TextInput label={"State"} width="200" />
+                  <TextInput label={"State"} name={'State'} width="200" />
                 </Grid>
                 <Grid items xs={12} sm={12} md={12} lg={4}>
-                  <NumberInput label={"PIN"} width="100" />
+                  <TextInput label={"Pin"} name={'Pin'} type={'number'} width="200" />
+
                 </Grid>
               </Grid>
             </Grid>
@@ -100,7 +101,7 @@ const Lab = () => {
             </Grid>
           </Grid>
         </Box>
-
+        
         <NumberInput
           aria-label="Demo number input"
           placeholder="Type a number…"
