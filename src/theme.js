@@ -209,6 +209,7 @@ export const themeSettings = (mode) => {
           },
         },
       },
+      
       MuiAccordionSummary: {
         styleOverrides: {
           root: {
