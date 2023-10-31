@@ -29,7 +29,7 @@ const AccGroup = () => {
     }));
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{ height: '100vh', overflow: 'auto' }}>
             <Card variant="outlined" sx={{ m: 2 }}>
                 <TitleBar />
                 <Box sx={{ flexGrow: 1 }}>
