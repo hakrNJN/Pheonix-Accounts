@@ -23,31 +23,22 @@ const Taxation = () => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
                     </Grid>
-                </Grid>
-            </Grid>
-            <Divider />
-            <Grid container justifyContent={'space-evenly'}>
-                <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
                         <TextInput name={"TDS Date"} label={"TDS Date"} />
                     </Grid>
-                </Grid>
-                <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
                         <TextInput name={"TDS Rate"} label={"TDS Rate"} type={'number'} />
                     </Grid>
-                </Grid>
-                <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextInput name={"Dhara"} label={"Dhara"} type={'number'} />
+                        <TextInput name={"Dhara"} label={"Dhara"} type={'number'} />
                     </Grid>
-                </Grid>
-                <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextInput name={"Mudhat"} label={"Mudhat"} type={'number'} />
+                        <TextInput name={"Mudhat"} label={"Mudhat"} type={'number'} />
                     </Grid>
                 </Grid>
             </Grid>
+            <Divider />
+            
             <Grid container justifyContent={'space-evenly'}>
                 <Grid items xs={12} sm={6} md={6} lg={6}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -56,12 +47,12 @@ const Taxation = () => {
                 </Grid>
                 <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextInput name={"RateOfInterest"} label={"Rate of Interest"} type={'number'} />
+                        <TextInput name={"RateOfInterest"} label={"Rate of Interest"} type={'number'} />
                     </Grid>
                 </Grid>
                 <Grid items xs={12} sm={6} md={3} lg={3}>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
-                    <TextInput name={"CreditDay"} label={"Credit Days Limit"} type={'number'} />
+                        <TextInput name={"CreditDay"} label={"Credit Days Limit"} type={'number'} />
                     </Grid>
                 </Grid>
             </Grid>
