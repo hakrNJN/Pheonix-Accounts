@@ -6,6 +6,7 @@ import Homepage from '../Screens/HomePage/Homepage';
 
 import AccGroup from '../Screens/AccountGroup/AccGroup';
 import AccountMast from '../Screens/AccountMast/AccountMast';
+import ItemMaster from '../Screens/ItemMast/ItemMaster';
 import Lab from '../Screens/Lab/Lab';
 
 export const MyRoutes = () => {
@@ -16,6 +17,7 @@ export const MyRoutes = () => {
       <Route path='/' element={<Homepage />} />
       <Route path='/accmaster' element={<AccountMast />} />
       <Route path='/acccategory' element={<AccGroup />} />
+      <Route path='/itemmaster' element={<ItemMaster />} />
 
       {/* Render private routes */}
 
