@@ -4,6 +4,7 @@ import { Route, Routes, } from 'react-router-dom';
 import { PageNotFound } from '../Screens/Error404/PageNotFound';
 import Homepage from '../Screens/HomePage/Homepage';
 
+import AccGroup from '../Screens/AccountGroup/AccGroup';
 import AccountMast from '../Screens/AccountMast/AccountMast';
 import Lab from '../Screens/Lab/Lab';
 
@@ -14,6 +15,7 @@ export const MyRoutes = () => {
       {/* Render public routes */}
       <Route path='/' element={<Homepage />} />
       <Route path='/accmaster' element={<AccountMast />} />
+      <Route path='/acccategory' element={<AccGroup />} />
 
       {/* Render private routes */}
 

@@ -28,7 +28,7 @@ const Taxation = () => {
                         <TextInput name={"Commission"} label={"Commission"} type={'number'} />
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={6}>
-                        <TextInput name={"Remark"} label={"Remark"} />
+                        <TextInput name={"Remark"} label={"Remark"} multiline={'true'}/>
                     </Grid>
                 </Grid>
                 <Divider />

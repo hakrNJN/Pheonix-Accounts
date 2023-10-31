@@ -1,5 +1,5 @@
 import { ExpandMore } from '@mui/icons-material'
-import { Accordion, AccordionDetails, AccordionSummary, Avatar, FormControl, Grid, Paper } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid } from '@mui/material'
 import React from 'react'
 import SelectInput from '../../../Components/SelectInput'
 import TextInput from '../../../Components/TextInput'
@@ -7,78 +7,122 @@ import TextInput from '../../../Components/TextInput'
 const AccHead = () => {
     return (
         <Grid container padding={1}>
-            <Grid items xs={12} sm={12} md={8} lg={10}>
-                <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } }}>
-                    <AccordionSummary expandIcon={<ExpandMore />}
-                        aria-controls="panella-content"
-                        id="panella-content"
-                        sx={{ p: 0 }}
-                    >
-                        <FormControl fullWidth sx={{ m: 0, p: 0 }}>
+            <Grid container justifyContent={"space-evenly"}>
+                <Grid items xs={12} sm={3} md={4} lg={4}>
+                    Place for Product Photograph
+                </Grid>
+                <Grid items xs={12} sm={9} md={8} lg={8}>
+                    <Grid container justifyContent={"space-evenly"}>
+                        <Grid items xs={12} sm={5} md={4} lg={4}>
+                            <TextInput label={"Product Code"} name={'Product Code'} fullWidth />
+                        </Grid>
+                        <Grid items xs={12} sm={7} md={8} lg={8}>
                             <TextInput name={"Name"} label={"Name"} fullWidth />
-                        </FormControl>
-                    </AccordionSummary>
-                    <AccordionDetails sx={{ p: 0 }}>
-                        <FormControl fullWidth>
-                            <div>
-                                <TextInput name={"Display Name"} label={"Display Name"} fullWidth />
-                                <div style={{ visibility: 'hidden' }}><ExpandMore /></div>
-                            </div>
-                        </FormControl>
-                    </AccordionDetails>
-                </Accordion>
-                <Grid container justifyContent={"space-evenly"}>
-                    <Grid item xs={12} sm={12} md={12} lg={4}>
-                        <TextInput name={"GSTIN"} label={"GSTIN"} width="200" />
-                    </Grid>
-                    <Grid items xs={12} sm={12} md={12} lg={4}>
-                        <SelectInput
-                            variant="outlined"
-                            name={"Group"}
-                            label={"Group"}
-                            options={["Option 1", "Option 2", "Option 3"]}
-                        />
-                    </Grid>
-                    <Grid items xs={12} sm={12} md={12} lg={4}>
-                        <SelectInput
-                            variant="outlined"
-                            name={"Category"}
-                            label={"Category"}
-                            options={["General", "Customer", "Supplier"]}
-                        />
+                        </Grid>
+                        <Grid items xs={12} sm={12} md={12} lg={12}>
+                            <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } }}>
+                                <AccordionSummary expandIcon={<ExpandMore />}
+                                    aria-controls="panella-content"
+                                    id="panella-content"
+                                    sx={{ p: 0 }}
+                                >
+                                    <Grid items xs={12} sm={6} md={6} lg={6}>
+                                        <SelectInput
+                                            variant="outlined"
+                                            name={"Type"}
+                                            label={"Type"}
+                                            options={["Option 1", "Option 2", "Option 3"]}
+                                        />
+                                    </Grid>
+                                    <Grid items xs={12} sm={6} md={6} lg={6}>
+                                        <SelectInput
+                                            variant="outlined"
+                                            name={"Item Group"}
+                                            label={"Item Group"}
+                                            options={["Option 1", "Option 2", "Option 3"]}
+                                        />
+                                    </Grid>
+                                </AccordionSummary>
+                                <AccordionDetails sx={{ p: 0 }}>
+                                    <Grid container justifyContent={"space-evenly"}>
+                                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                                            <SelectInput
+                                                variant="outlined"
+                                                name={"Base Item"}
+                                                label={"Base Item"}
+                                                options={["Option 1", "Option 2", "Option 3"]}
+                                            />
+                                        </Grid>
+                                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                                            <SelectInput
+                                                variant="outlined"
+                                                name={"Grey Name"}
+                                                label={"Grey Name"}
+                                                options={["Option 1", "Option 2", "Option 3"]}
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                </AccordionDetails>
+                            </Accordion>
+                        </Grid>
+
+
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <SelectInput
+                                variant="outlined"
+                                name={"Catelog"}
+                                label={"Base Item"}
+                                options={["Option 1", "Option 2", "Option 3"]}
+                            />
+                        </Grid>
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <SelectInput
+                                variant="outlined"
+                                name={"Sec Name"}
+                                label={"Sec Name"}
+                                options={["Option 1", "Option 2", "Option 3"]}
+                            />
+                        </Grid>
+
+                        <Grid items xs={12} sm={6} md={3} lg={3}>
+                            <SelectInput
+                                variant="outlined"
+                                name={"Unit"}
+                                label={"Unit"}
+                                options={["Option 1", "Option 2", "Option 3"]}
+                            />
+                        </Grid>
+                        <Grid items xs={12} sm={6} md={3} lg={3}>
+                            <TextInput name={"Cut"} label={"Cut"} fullWidth />
+                        </Grid>
+                        <Grid items xs={0} sm={6} md={6} lg={6}></Grid>
+                        <Divider />
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <SelectInput
+                                variant="outlined"
+                                name={"Input Type"}
+                                label={"Input Type"}
+                                options={["Input Goods", "Capital Goods", "Service"]}
+                            />
+                        </Grid>
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <TextInput name={"HSN"} label={"HSN"} fullWidth />
+                        </Grid>
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <SelectInput
+                                variant="outlined"
+                                name={"Status"}
+                                label={"Status"}
+                                options={["True", "False"]}
+                            />
+                        </Grid>
+                        <Grid items xs={12} sm={6} md={6} lg={6}>
+                            <TextInput name={"Remark"} label={"Remark"} type={'textarea'} fullWidth multiline={'true'}/>
+                        </Grid>
+                        <Grid items xs={0} sm={6} md={6} lg={6}></Grid>
                     </Grid>
                 </Grid>
-                <Grid container justifyContent={"space-evenly"}>
-                    <Grid item xs={12} sm={12} md={12} lg={4}>
-                        <SelectInput
-                            variant="outlined"
-                            name={"Schedule"}
-                            label={"Schedule"}
-                            options={["Sundry Creditor", "Sundry Debtor", "Loan"]}
-                        />
-                    </Grid>
-                    <Grid items xs={12} sm={12} md={12} lg={4}>
-                        <SelectInput
-                            variant="outlined"
-                            name={"Reg Type"}
-                            label={"Reg Type"}
-                            options={["Registered", "Un-Registered", "Composite", "Unknown"]}
-                        />
-                    </Grid>
-                    <Grid items xs={12} sm={12} md={12} lg={4}>
-                        <SelectInput
-                            variant="outlined"
-                            name={"Agent"}
-                            label={"Agent"}
-                            options={["Agent1", "Agent 2", "Agent 3"]}
-                        />
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid items xs={12} sm={12} md={4} lg={2} paddingX={1}>
-                <Paper elevation={5}>
-                    <Avatar sizes="512" />
-                </Paper>
+
             </Grid>
         </Grid>)
 }

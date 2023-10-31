@@ -1,18 +1,12 @@
 import {
   Card,
-  Divider,
   Paper,
   useMediaQuery
 } from "@mui/material";
 import { Box, Container, styled } from "@mui/system";
 import React, { useState } from "react";
 import TitleBar from "../../Components/Global/TitleBar";
-import FullWidthTabs from "../../Components/Tabs";
 import AccHead from "./Components/AccHead";
-import Address from "./Components/Address";
-import Bank from "./Components/Bank";
-import ContactDetails from "./Components/ContactDetails.jsx";
-import Taxation from "./Components/Taxation";
 
 
 const Lab = () => {
@@ -37,19 +31,6 @@ const Lab = () => {
         <Box sx={{ flexGrow: 1 }}>
           <AccHead/>
         </Box>
-        <FullWidthTabs labels={['Address & Transportation', 'Bank Details', 'Taxations and Schemes']}>
-          <Box sx={{ flexGrow: 1 }}>
-            <Address/>
-            <Divider/>
-            <ContactDetails/>
-          </Box>
-          <Box sx={{ flexGrow: 1 }}>
-            <Bank/>
-          </Box>
-          <Box sx={{ flexGrow: 1 }}>
-            <Taxation/>
-          </Box>
-        </FullWidthTabs>
       </Card>
     </Container>
   );
