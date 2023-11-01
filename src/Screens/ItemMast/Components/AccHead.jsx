@@ -1,6 +1,7 @@
 import { ExpandMore } from '@mui/icons-material'
 import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid } from '@mui/material'
 import React from 'react'
+import ImageBox from '../../../Components/Global/ImageCard'
 import SelectInput from '../../../Components/SelectInput'
 import TextInput from '../../../Components/TextInput'
 
@@ -9,7 +10,11 @@ const AccHead = () => {
         <Grid container padding={1}>
             <Grid container justifyContent={"space-evenly"}>
                 <Grid items xs={12} sm={3} md={4} lg={4}>
-                    Place for Product Photograph
+                    <ImageBox
+                    image="https://www.truckbusters.co.za/wp-content/uploads/2019/06/Image-Placeholder-400x400.jpg"
+                        alt="365452"
+                    />
+                    
                 </Grid>
                 <Grid items xs={12} sm={9} md={8} lg={8}>
                     <Grid container justifyContent={"space-evenly"}>
@@ -117,7 +122,7 @@ const AccHead = () => {
                             />
                         </Grid>
                         <Grid items xs={12} sm={6} md={6} lg={6}>
-                            <TextInput name={"Remark"} label={"Remark"} type={'textarea'} fullWidth multiline={'true'}/>
+                            <TextInput name={"Remark"} label={"Remark"} type={'textarea'} fullWidth multiline={'true'} />
                         </Grid>
                         <Grid items xs={0} sm={6} md={6} lg={6}></Grid>
                     </Grid>
