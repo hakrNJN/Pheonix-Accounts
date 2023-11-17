@@ -7,6 +7,7 @@ import { Box, Container, styled } from "@mui/system";
 import React, { useState } from "react";
 import TitleBar from "../../Components/Global/TitleBar";
 import AccHead from "./Components/AccHead";
+import SignInPage from "../Login/LoginPage";
 
 
 const Lab = () => {
@@ -26,12 +27,7 @@ const Lab = () => {
 
   return (
     <Container maxWidth="md">
-      <Card variant="outlined" sx={{ m: 2 }}>
-        <TitleBar />
-        <Box sx={{ flexGrow: 1 }}>
-          <AccHead/>
-        </Box>
-      </Card>
+      <SignInPage/>
     </Container>
   );
 };

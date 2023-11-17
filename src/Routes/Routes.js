@@ -8,13 +8,15 @@ import AccGroup from '../Screens/AccountGroup/AccGroup';
 import AccountMast from '../Screens/AccountMast/AccountMast';
 import ItemMaster from '../Screens/ItemMast/ItemMaster';
 import Lab from '../Screens/Lab/Lab';
+import SignInPage from '../Screens/Login/LoginPage';
 
 export const MyRoutes = () => {
   return (
     
     <Routes>
       {/* Render public routes */}
-      <Route path='/' element={<Homepage />} />
+      <Route path='/' element={<SignInPage/>}/>
+      <Route path='/home' element={<Homepage />} />
       <Route path='/accmaster' element={<AccountMast />} />
       <Route path='/acccategory' element={<AccGroup />} />
       <Route path='/itemmaster' element={<ItemMaster />} />
