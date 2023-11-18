@@ -16,8 +16,9 @@ body,
   height: 100%;
   width: 100%;
   font-family: "Source Sans Pro", sans-serif;
-  /* background: linear-gradient(400deg,  #776BCC,#C7C5F4);	 */
+  /*background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://s6.imgcdn.dev/RaJB9.jpg') // linear-gradient(400deg,  #776BCC,#C7C5F4);	 */
 }
+
 
 span {margin:2px;}
 

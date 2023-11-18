@@ -11,7 +11,7 @@ const StyledContainer = styled(Box)(({ theme }) => ({
     width: '100%',
     maxWidth: '525px',
     minHeight: '680px',
-    backgroundImage: 'url(https://i.pinimg.com/736x/d2/60/cb/d260cb070d0b8ccf3809eb171581f6d9.jpg)',
+    backgroundImage: 'url(https://cdn.wallpapersafari.com/19/16/YUGJXe.jpg)',
     boxShadow: '0 50px 70px -20px rgba(0, 0, 0, 0.85)',
     '&:after': {
         content: '""',

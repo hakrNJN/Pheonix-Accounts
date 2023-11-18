@@ -18,6 +18,8 @@ import {
   } from "@mui/icons-material";
   import Notification from "./Notifications";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../Store/Slice/AuthSlice";
   
 const Topbar = () => {
     const theme = useTheme();
@@ -26,11 +28,13 @@ const Topbar = () => {
     const colorMode = useContext(ColorModeContext);
     // const [open, setOpen] = useState(false);
     const [anchorElUser, setAnchorElUser] = useState(null);
-    const [anchorElNotification, setAnchorElNotification] = useState(null);
+  const [anchorElNotification, setAnchorElNotification] = useState(null);
+  const dispatch = useDispatch(); // need to remove later
 
     const handleSignOut = () => {
-    console.log('SIgnout Clicked on Top Bar')
-        //   signOut( dispatch);
+    // console.log('SIgnout Clicked on Top Bar')
+      // signOu( dispatch);
+      dispatch(logout(null));
     }
     const handleOpenUserMenu = (event) => {
       setAnchorElUser(event.currentTarget);

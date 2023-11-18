@@ -28,7 +28,7 @@ const authSlice = createSlice({
             state.isLoggedIn = false;
             state.token = null;
             state.user = null;
-            state.loading = true;
+            // state.loading = true;
             ls.remove('token');
             ls.remove('user');
             ls.remove('password');
