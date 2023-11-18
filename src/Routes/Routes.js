@@ -15,8 +15,7 @@ export const MyRoutes = () => {
     
     <Routes>
       {/* Render public routes */}
-      <Route path='/' element={<SignInPage/>}/>
-      <Route path='/home' element={<Homepage />} />
+      <Route path='/' element={<Homepage />} />
       <Route path='/accmaster' element={<AccountMast />} />
       <Route path='/acccategory' element={<AccGroup />} />
       <Route path='/itemmaster' element={<ItemMaster />} />
