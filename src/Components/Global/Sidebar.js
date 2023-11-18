@@ -158,7 +158,7 @@ const MySidebar = ({menuContent}) => {
                     alt="profile-user"
                     width="100px"
                     height="100px"
-                    src={'/images/DP.png'}
+                    src={'https://s6.imgcdn.dev/Raoby.png'}
                     style={{ cursor: "pointer", borderRadius: "50%" }}
                   />
                 </Box>

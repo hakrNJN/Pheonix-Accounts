@@ -3,6 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Avatar, FormControl, Gri
 import React from 'react'
 import SelectInput from '../../../Components/SelectInput'
 import TextInput from '../../../Components/TextInput'
+import ImageBox from '../../../Components/Global/ImageCard'
 
 const AccHead = () => {
     return (
@@ -80,9 +81,11 @@ const AccHead = () => {
                 </Grid>
             </Grid>
             <Grid items xs={12} sm={12} md={4} lg={2} paddingX={1}>
-                <Paper elevation={5}>
-                    <Avatar sizes="512" />
-                </Paper>
+            <ImageBox height={150}
+            image="https://tier4marketing.com/wp-content/uploads/2015/10/Client-Logo-Placeholder.png"
+                alt="365452"
+            />
+            
             </Grid>
         </Grid>)
 }

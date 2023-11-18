@@ -134,7 +134,7 @@ const Topbar = () => {
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar
                 alt="Debojit"
-                src={`${process.env.PUBLIC_URL}/images/DP.png`}
+                src={`https://s6.imgcdn.dev/Raoby.png`}
               />
             </IconButton>
           </Tooltip>
