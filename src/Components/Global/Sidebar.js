@@ -142,7 +142,7 @@ const MySidebar = ({menuContent}) => {
                   alignItems="center"
                   ml="15px"
                 >
-                  <Typography variant="h3" color={colors.grey[200]}>
+                  <Typography variant="h6" fontWeight="bold" color={colors.grey[200]}>
                     ANUSHREE
                   </Typography>
                   <IconButton onClick={() => setCollapsed(!collapsed)}>
@@ -164,7 +164,7 @@ const MySidebar = ({menuContent}) => {
                 </Box>
                 <Box textAlign="center">
                   <Typography
-                    variant="h3"
+                    variant="h6"
                     color={colors.grey[100]}
                     fontWeight="bold"
                     sx={{ m: "10px 0 0 0" ,textTransform: 'uppercase'}}

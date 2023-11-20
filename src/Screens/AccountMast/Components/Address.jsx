@@ -9,7 +9,7 @@ const Address = () => {
         <Grid container padding={1}>
             <Grid items xs={12} sm={12} md={12} lg={12}>
                 <TextInput label={"Address 1"} name={'Address 1'} fullWidth />
-                <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } }}>
+                <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } ,boxShadow: 'none' }}>
                     <AccordionSummary expandIcon={<ExpandMore />}
                         aria-controls="panella-content"
                         id="panella-content"

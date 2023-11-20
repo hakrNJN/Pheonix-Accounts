@@ -9,7 +9,7 @@ const AccHead = () => {
     return (
         <Grid container padding={1}>
             <Grid items xs={12} sm={12} md={8} lg={10}>
-                <Accordion sx={{ '&.MuiAccordion-root:before': { display: 'none' } }}>
+                <Accordion sx={{ '&.MuiAccordion-root :before': { display: 'none' },boxShadow: 'none' }}>
                     <AccordionSummary expandIcon={<ExpandMore />}
                         aria-controls="panella-content"
                         id="panella-content"
