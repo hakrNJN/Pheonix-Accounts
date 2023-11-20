@@ -13,6 +13,7 @@ import Address from "./Components/Address";
 import Bank from "./Components/Bank";
 import ContactDetails from "./Components/ContactDetails.jsx";
 import Taxation from "./Components/Taxation";
+import FormButtonGroup from "../../Components/ButtomButton.jsx";
 
 
 const AccountMast = () => {
@@ -50,6 +51,7 @@ const AccountMast = () => {
                         <Taxation />
                     </Box>
                 </FullWidthTabs>
+                <FormButtonGroup/>
             </Card>
         </Container>
     );

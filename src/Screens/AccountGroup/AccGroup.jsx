@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 import { Box, Container, styled } from "@mui/system";
 import React, { useState } from "react";
-import BottomButtonGroup from "../../Components/ButtomButton";
+import FormButtonGroup from "../../Components/ButtomButton";
 import TitleBar from "../../Components/Global/TitleBar";
 import FullWidthTabs from "../../Components/Tabs";
 import AccHead from "./Components/AccHead";
@@ -47,7 +47,7 @@ const AccGroup = () => {
                     </Box>
 
                 </FullWidthTabs>
-                <BottomButtonGroup />
+                <FormButtonGroup/>
             </Card>
         </Container>
     );
