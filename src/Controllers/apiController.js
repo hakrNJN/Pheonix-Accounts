@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 // Define a general API calling function
 const callApi = async ({ endpoint, method, data, headers }) => {
     let formattedData;
-  
+
     // Check the Content-Type header and format the data accordingly
     switch (headers['Content-Type']) {
       case 'application/x-www-form-urlencoded':
@@ -12,7 +12,8 @@ const callApi = async ({ endpoint, method, data, headers }) => {
         for (const key in data) {
           formData.append(key, data[key]);
         }
-        formattedData = formData.toString();
+            formattedData = formData.toString();
+            console.warn(formattedData)
         break;
       case 'multipart/form-data':
         const multipartData = new FormData();

@@ -25,7 +25,6 @@ export default function SignInPage() {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    console.log(event.target.value)
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -57,9 +56,7 @@ export default function SignInPage() {
   
   const method = 'POST'; 
 
-  console.warn(header)
-
-  const validationMutation = useApiMutation(method, validationPath, validationData,header );
+  const validationMutation = useApiMutation(method, validationPath, validationData,header.getHeaders() );
   const loginMutation = useApiMutation(method, loginPath, loginData, header);
   
   React.useEffect(() => {
