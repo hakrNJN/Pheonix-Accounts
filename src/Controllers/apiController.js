@@ -3,26 +3,51 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 // Define a general API calling function
 const callApi = async ({ endpoint, method, data, headers }) => {
-    try {
-        const response = await axios({
-            url: endpoint,
-            method,
-            data,
-            headers,
-        });
-        if (response.status >= 200 && response.status < 300) {
-            return response.data;
+    let formattedData;
+  
+    // Check the Content-Type header and format the data accordingly
+    switch (headers['Content-Type']) {
+      case 'application/x-www-form-urlencoded':
+        const formData = new URLSearchParams();
+        for (const key in data) {
+          formData.append(key, data[key]);
         }
-        const error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-    } catch (error) {
-        if (!error.response) {
-            throw new Error('Network error');
+        formattedData = formData.toString();
+        break;
+      case 'multipart/form-data':
+        const multipartData = new FormData();
+        for (const key in data) {
+          multipartData.append(key, data[key]);
         }
-        throw error;
+        formattedData = multipartData;
+        break;
+      case 'application/json':
+      default:
+        formattedData = JSON.stringify(data);
+        break;
     }
-};
+  
+    try {
+      const response = await axios({
+        url: endpoint,
+        method,
+        data: formattedData,
+        headers,
+      });
+      if (response.status >= 200 && response.status < 300) {
+        return response.data;
+      }
+      const error = new Error(response.statusText);
+      error.response = response;
+      throw error;
+    } catch (error) {
+      if (!error.response) {
+        throw new Error('Network error');
+      }
+      throw error;
+    }
+  };
+  
 
 // Define your custom hooks
 export const useApiQuery = (endpoint, headers) => {

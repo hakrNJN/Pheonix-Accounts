@@ -11,49 +11,93 @@ import { useDispatch } from 'react-redux';
 import { setToken } from '../../Store/Slice/AuthSlice';
 import LoadingSpinner from '../../Components/Global/LoadinfSpinner';
 import SmallLoading from './Components/SmallLoading';
+import appConfig from '../../Config/AppConfig';
+import { useApiMutation, useApiQuery } from '../../Controllers/apiController';
+import Headers from '../../Utils/HeaderBuilder';
 
 
 
 export default function SignInPage() {
   // const history = unstable_HistoryRouter();
-  const [clientCode, setClientCode] = React.useState('');
+  const [form, setForm] = React.useState({ userid: '', clientcode: '', password: '' });
   const [showFragment, setShowFragment] = React.useState(false);
-  const [loading, setLoading] = React.useState(false);
+  // const [loading, setLoading] = React.useState(false);
   const dispatch = useDispatch();
 
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
   // const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    dispatch(setToken('Token'));
-  };
 
-  //temporary functions to mimic loading effect
-  const handleClientCodeChange = (event) => {
-    setClientCode(event.target.value);
-  };
+  const header = new Headers(null,'application/x-www-form-urlencoded')
+ 
 
+  const validationPath = `${appConfig.apiPath.basePath}/${appConfig.apiPath.getUser}`;
+  const loginPath = `${appConfig.apiPath.basePath}/${appConfig.apiPath.login}`;
+
+  const validationData = {
+    'username': form.userid,
+    'clientcode': form.clientcode
+  }; // validation data
+
+  const loginData = {
+    'username': form.userid,
+    'clientcode': form.clientcode,
+    'password': form.password,
+    'IFCM': null,
+    'AFCM': null,
+    'IDeviceType': null,
+    'ADeviceType': null
+  }; // login data
+  
+  const method = 'POST'; 
+
+  console.warn(header)
+
+  const validationMutation = useApiMutation(method, validationPath, validationData,header );
+  const loginMutation = useApiMutation(method, loginPath, loginData, header);
+  
   React.useEffect(() => {
-    if (clientCode.length >= 4) {
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setShowFragment(true);
-      }, 2000);
+    if (form.clientcode.length >= 4) {
+      validationMutation.mutate(validationData, {
+        onSuccess: (data) => {
+          console.log(data)
+          setShowFragment(true);
+        },
+      });
     }
-  }, [clientCode]);
+  }, [form.clientcode]);
+
+  const handleSignIn = () => {
+    if (form.password) {
+      // Make a second API request with the password
+      loginMutation.mutate(loginData, {
+        onSuccess: (data) => {
+          if (data && data.token) {
+            dispatch(setToken(data.token));
+          }
+        },
+      });
+    }
+  };
 
   return (
     <StyledContainer>
       <StyledLabel variant='h3'>USERNAME</StyledLabel>
-      <StyledInput size='small' id="login-input-user" variant="outlined" />
+      <StyledInput size='small' id="login-input-user" name='userid' variant="outlined" onChange={handleChange}/>
       <StyledLabel variant='h3'>CLIENT CODE</StyledLabel>
-      <StyledInput size='small' id="login-input-client" variant="outlined" onChange={handleClientCodeChange} />
-      {loading ? (
+      <StyledInput size='small' id="login-input-client" name='clientcode' variant="outlined" onChange={handleChange} />
+      {validationMutation.isLoading ? (
         <SmallLoading/>
       ) : showFragment && (
         <React.Fragment>
           <StyledLabel variant='h3'>PASSWORD</StyledLabel>
-          <StyledInput size='small' id="login-input-password" variant="outlined" type='password' />
+          <StyledInput size='small' id="login-input-password" name='password' variant="outlined" type='password' onChange={handleChange} />
           <StyledFormControlLabel
             control={<StyledCheckbox id="login-sign-up" />}
             label="Keep me Signed in"
@@ -63,6 +107,11 @@ export default function SignInPage() {
           </StyledSubmit>
         </React.Fragment>
       )}
+      {validationMutation.isError ?
+        <div>
+          <StyledLabel variant='h3'>{ validationMutation.error.message}</StyledLabel>
+        </div>:<div></div>
+      }
     </StyledContainer>
 
   );

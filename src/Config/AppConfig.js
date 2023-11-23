@@ -136,6 +136,9 @@ const menuContent = [
   
   const appConfig = {
     apiPath: {
+      basePath: 'http://ttms.turboinfotech.com',
+      getUser: 'api/appusers/GetUserVerificationBy',
+      login:'api/appusers/authenticateuser'
       // authApiServerUrl,
       // turboApiServerUrl
     },

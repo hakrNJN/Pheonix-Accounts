@@ -6,7 +6,7 @@ import MyRoutes from './Routes/Routes';
 import Sidebar from './Components/Global/Sidebar';
 import React from 'react';
 import appConfig from "./Config/AppConfig";
-import { ColorModeContext,useMode } from './theme';
+import { ColorModeContext, useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import store from './Store/Store';
@@ -16,6 +16,8 @@ import SignInPage from './Screens/Login/LoginPage';
 import { setLoading } from './Store/Slice/AuthSlice';
 import LoadingSpinner from "./Components/Global/LoadinfSpinner";
 import SecureLS from 'secure-ls';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 
 const ls = new SecureLS({ encodingType: 'aes' });
 
@@ -26,9 +28,9 @@ const AuthorisedRoutes = () => {
       <div className="app">
         <Sidebar menuContent={appConfig.menuContent} isSidebar={isSidebar} />
         <main className="content" style={{ flex: 1 }}>
-              <Topbar setIsSidebar={setIsSidebar} />
-              <MyRoutes />
-            </main>
+          <Topbar setIsSidebar={setIsSidebar} />
+          <MyRoutes />
+        </main>
       </div>
     </BrowserRouter>
   );
@@ -59,7 +61,7 @@ const AppContent = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <LoadingSpinner/>;
+    return <LoadingSpinner />;
   }
 
   return (
@@ -69,18 +71,25 @@ const AppContent = () => {
   );
 };
 
+
+// Create a client
+const queryClient = new QueryClient();
+
+
 const App = () => {
   const [theme, colorMode] = useMode();
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Provider store={store}>
-          <AppContent />
-        </Provider>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <QueryClientProvider client={queryClient}>
+      <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Provider store={store}>
+            <AppContent />
+          </Provider>
+        </ThemeProvider>
+      </ColorModeContext.Provider>
+    </QueryClientProvider>
   );
 }
 export default App;
