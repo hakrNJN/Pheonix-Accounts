@@ -8,7 +8,7 @@ import AccGroup from '../Screens/AccountGroup/AccGroup';
 import AccountMast from '../Screens/AccountMast/AccountMast';
 import ItemMaster from '../Screens/ItemMast/ItemMaster';
 import Lab from '../Screens/Lab/Lab';
-import SignInPage from '../Screens/Login/LoginPage';
+import CityMaster from '../Screens/CityMast/CityMaster';
 
 export const MyRoutes = () => {
   return (
@@ -19,6 +19,7 @@ export const MyRoutes = () => {
       <Route path='/accmaster' element={<AccountMast />} />
       <Route path='/acccategory' element={<AccGroup />} />
       <Route path='/itemmaster' element={<ItemMaster />} />
+      <Route path='/citymaster' element={<CityMaster />} />
 
       {/* Render private routes */}
 

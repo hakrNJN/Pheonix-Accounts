@@ -44,7 +44,7 @@ const StyledSubmit = styled(Button)(({ theme ,width, height}) => ({
 
 const FlatButton = ({ icon, label, onClick, width, height }) => {
   return (
-    <Box sx={{ px: 4 }}>
+    <Box sx={{ px: 2 }}>
       <StyledSubmit variant="contained" onClick={onClick} width={width} height={height}>
         <Box display="flex" alignItems="center" justifyContent="flex-start" width="100%">
           <Box width="25%" display="flex" justifyContent="center">

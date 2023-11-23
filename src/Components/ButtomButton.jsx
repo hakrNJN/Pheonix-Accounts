@@ -6,8 +6,8 @@ import FlatButton from './Button'
 const FormButtonGroup = () => {
     return (
         <Container sx={{ pb: 2 }}>
-            <Grid container padding={1}>
-                <Grid container justifyContent={"flex-end"}>
+            <Grid container padding={0.5}>
+                <Grid container justifyContent={'end'}>
                     <FlatButton label={'Edit'}  icon={<Edit />} />
                     <FlatButton label={'Save'} icon={<Save />} />
                 </Grid>

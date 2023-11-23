@@ -213,7 +213,7 @@ const SelectInput = ({
         id={`${variant}-input-${name}`}
         size="small"
         options={options}
-        getOptionLabel={(option) => option}
+        getOptionLabel={(option) => option.value} // Change this line
         renderInput={(params) => (
           <RoundedTextField
             {...params}

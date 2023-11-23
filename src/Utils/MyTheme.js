@@ -44,8 +44,17 @@ const DarkTheme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#222222', // set the default background color for dark mode
+      default: '#2b3141', // set the default background color for dark mode
       // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s6.imgcdn.dev/RaJB9.jpg)`,
+    },
+  },
+  components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#2b3141', // Or any color you want
+        },
+      },
     },
   },
 });
