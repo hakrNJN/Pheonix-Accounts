@@ -27,9 +27,9 @@ export default function SignInPage() {
       ...form,
       [event.target.name]: event.target.value,
     });
-    if (event.target.name === 'clientcode' && event.target.value.length < 4) {
+    if (event.target.name === 'clientcode' && event.target.value.length < 4 && event.target.name === 'userid' && event.target.value.length <= 3) {
       setShowFragment(false);
-    } else if (event.target.name === 'clientcode' && event.target.value.length >= 4) {
+    } else if (event.target.name === 'clientcode' && event.target.value.length >= 4 && event.target.name === 'userid' && event.target.value.length > 3) {
       setShowFragment(true);
     }
   };
@@ -60,10 +60,9 @@ export default function SignInPage() {
   const loginMutation = useApiMutation(method, loginPath, loginData, header);
   
   React.useEffect(() => {
-    if (form.clientcode.length >= 4) {
+    if (form.clientcode.length >= 4 && form.userid.length > 3) {
       validationMutation.mutate(validationData, {
         onSuccess: (data) => {
-          console.log(data)
           setShowFragment(true);
         },
       });
