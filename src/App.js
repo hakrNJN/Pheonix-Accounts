@@ -13,7 +13,7 @@ import store from './Store/Store';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import SignInPage from './Screens/Login/LoginPage';
-import { setLoading } from './Store/Slice/AuthSlice';
+import { logout, setLoading, setToken } from './Store/Slice/AuthSlice';
 import LoadingSpinner from "./Components/Global/LoadinfSpinner";
 import SecureLS from 'secure-ls';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -54,8 +54,11 @@ const AppContent = () => {
   React.useEffect(() => {
     const checkLoginStatus = async () => {
       const token = ls.get('token');
-      const user = ls.get('user');
-      dispatch(setLoading(false));
+      if (token !== null) {
+        dispatch(setToken(token)); // Dispatch setToken action
+      } else {
+        dispatch(logout()); // Dispatch logout action if no token is found
+      }
     };
     checkLoginStatus();
   }, [dispatch]);

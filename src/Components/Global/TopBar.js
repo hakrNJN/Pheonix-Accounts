@@ -32,7 +32,6 @@ const Topbar = () => {
   const dispatch = useDispatch(); // need to remove later
 
     const handleSignOut = () => {
-    // console.log('SIgnout Clicked on Top Bar')
       // signOu( dispatch);
       dispatch(logout(null));
     }
