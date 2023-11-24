@@ -41,9 +41,6 @@ export default function SignInPage() {
     }));
   }
 
-  React.useEffect(() => {
-    console.table(form);
-  }, [form]);
 
   const header = new Headers(null,'application/x-www-form-urlencoded')
  

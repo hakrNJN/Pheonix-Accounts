@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Topbar from './Components/Global/TopBar';
@@ -13,7 +13,7 @@ import store from './Store/Store';
 import { Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import SignInPage from './Screens/Login/LoginPage';
-import { logout, setLoading, setToken } from './Store/Slice/AuthSlice';
+import { logout,  setToken } from './Store/Slice/AuthSlice';
 import LoadingSpinner from "./Components/Global/LoadinfSpinner";
 import SecureLS from 'secure-ls';
 import { QueryClient, QueryClientProvider } from 'react-query';
