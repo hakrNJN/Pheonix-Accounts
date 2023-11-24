@@ -8,7 +8,7 @@ import StyledSubmit from './Components/SubmitButton';
 import StyledCheckbox from './Components/CheckBox';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setToken } from '../../Store/Slice/AuthSlice';
+import { setUserName, setToken } from '../../Store/Slice/AuthSlice';
 import LoadingSpinner from '../../Components/Global/LoadinfSpinner';
 import SmallLoading from './Components/SmallLoading';
 import appConfig from '../../Config/AppConfig';
@@ -18,10 +18,8 @@ import Headers from '../../Utils/HeaderBuilder';
 
 
 export default function SignInPage() {
-  // const history = unstable_HistoryRouter();
   const [form, setForm] = React.useState({ userid: '', clientcode: '', password: '' });
   const [showFragment, setShowFragment] = React.useState(false);
-  // const [loading, setLoading] = React.useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
@@ -29,13 +27,15 @@ export default function SignInPage() {
       ...form,
       [event.target.name]: event.target.value,
     });
+    if (event.target.name === 'clientcode' && event.target.value.length < 4) {
+      setShowFragment(false);
+    } else if (event.target.name === 'clientcode' && event.target.value.length >= 4) {
+      setShowFragment(true);
+    }
   };
-  // const navigate = useNavigate();
-
-
+  
   const header = new Headers(null,'application/x-www-form-urlencoded')
  
-
   const validationPath = `${appConfig.apiPath.basePath}/${appConfig.apiPath.getUser}`;
   const loginPath = `${appConfig.apiPath.basePath}/${appConfig.apiPath.login}`;
 
@@ -76,12 +76,18 @@ export default function SignInPage() {
       loginMutation.mutate(loginData, {
         onSuccess: (data) => {
           if (data && data.token) {
-            dispatch(setToken(data.token));
+            dispatch(loginSuccess(data));
           }
         },
       });
     }
   };
+
+  // Batch action creator
+const loginSuccess = (data) => (dispatch) => {
+  dispatch(setUserName(form.userid));
+  dispatch(setToken(data.token));
+};
 
   return (
     <StyledContainer>
