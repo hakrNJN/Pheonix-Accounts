@@ -1,0 +1,12 @@
+{
+  "LicenseUrls": [
+    "https://storage.googleapis.com/aspl-app.appspot.com/phoenix_desktop_json/phoenix_license.json",
+    "https://storage.googleapis.com/aspl-app.appspot.com/phoenix_desktop_json/phoenix_license1.json",
+     "https://storage.googleapis.com/aspl-app.appspot.com/phoenix_desktop_json/phoenix_license3.json",
+  ],
+  "CoreUpdate": {
+    "Version": "1.0.0.2",
+    https://storage.googleapis.com/aspl-app.appspot.com/Phoenix_Updates/Phoenix.Core.dll",
+    "Mandatory": true
+  }
+}
