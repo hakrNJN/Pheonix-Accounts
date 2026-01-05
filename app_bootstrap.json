@@ -6,7 +6,8 @@
   ],
   "CoreUpdate": {
     "Version": "1.0.0.2",
-    https://storage.googleapis.com/aspl-app.appspot.com/Phoenix_Updates/Phoenix.Core.dll",
+    "https://storage.googleapis.com/aspl-app.appspot.com/Phoenix_Updates/Phoenix.Core.dll",
     "Mandatory": true
   }
+
 }
